@@ -31,8 +31,9 @@ export class CartComponent implements OnInit {
     }
 
     resetForm() {
-        this.checkedForm.get('name').setValue('A man full of himself');
-        this.checkedForm.get('address').setValue('A city full of itself');
+        this.checkedForm.patchValue({
+            name: 'A man full of himself',
+        });
     }
 
     ngOnInit() { }
