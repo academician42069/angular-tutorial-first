@@ -13,6 +13,8 @@
 
     <button (click)="share()">Share</button>
 
+    <!-- <button ngIf="!checkWishlist(product)" (click)="addToWishlist(product)">Add To Wishlist</button> -->
+
     <app-product-alerts 
     [product]="product"
     (notify)="onNotify()"
