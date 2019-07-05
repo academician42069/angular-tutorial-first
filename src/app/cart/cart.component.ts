@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormControl } from '@angular/forms';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class CartComponent implements OnInit {
         this.clear = this.cartService.clearCart;
 
         this.checkedForm = formBuilder.group({
-            name: ['', Validators.minLength(2)],
+            name: ['', [Validators.minLength(4), this.forbiddenName()]],
             address: formBuilder.group({
                 street: '',
                 city: '',
@@ -28,6 +28,12 @@ export class CartComponent implements OnInit {
                 zip: '',
             })
         });
+    }
+
+    forbiddenName() {
+        return (formControl) => {
+            return formControl.value === 'Roman' ? {forbidden: {invalid: true}} : null;
+        };
     }
 
     onSubmit(value) {
@@ -39,6 +45,10 @@ export class CartComponent implements OnInit {
         this.checkedForm.patchValue({
             name: 'A man full of himself',
         });
+    }
+
+    get name() {
+        return this.checkedForm.get('name') as FormControl;
     }
 
     ngOnInit() { }
