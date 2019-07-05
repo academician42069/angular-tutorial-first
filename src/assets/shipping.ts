@@ -1,0 +1,14 @@
+export const shipping = [
+    {
+        name: 'Overnight',
+        price: 25.99,
+    },
+    {
+        name: '2-Days',
+        price: 9.99,
+    },
+    {
+        name: 'Postal',
+        price: 2.99,
+    },
+];

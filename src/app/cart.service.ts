@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class CartService {
-    constructor() { }
+    constructor(private http: HttpClient) { }
 
     items = [];
 
@@ -13,9 +14,9 @@ export class CartService {
         this.items.push(product);
     }
 
-    removeFromCart() {
-        this.items.pop();
-        return this.items;
+    removeFromCart(product) {
+        console.log(`removing ${this.items.indexOf(product)}`);
+        this.items.splice(this.items.indexOf(product), 1);
     }
 
     getItems() {
@@ -25,5 +26,9 @@ export class CartService {
     clearCart() {
         this.items = [];
         return this.items;
+    }
+
+    getShippingCosts() {
+        return this.http.get('assets/shipping.json');
     }
 }
