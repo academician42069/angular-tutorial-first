@@ -3,4 +3,7 @@
 <div class="cart-item" *ngFor="let item of items">
     <span>{{item.name}}</span>
     <span>{{item.price}}</span>
+    <button (click)="remove()">Remove</button>
 </div>
+
+<button *ngIf="items[0]" (click)="clear()">Clear All</button>

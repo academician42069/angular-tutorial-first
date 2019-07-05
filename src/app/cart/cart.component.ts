@@ -9,9 +9,13 @@ import { CartService } from '../cart.service';
 
 export class CartComponent implements OnInit {
     items;
+    remove;
+    clear;
 
     constructor(private cartService: CartService) {
         this.items = this.cartService.getItems();
+        this.remove = this.cartService.removeFromCart;
+        this.clear = this.cartService.clearCart;
     }
 
     ngOnInit() { }

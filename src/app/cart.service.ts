@@ -13,6 +13,11 @@ export class CartService {
         this.items.push(product);
     }
 
+    removeFromCart() {
+        this.items.pop();
+        return this.items;
+    }
+
     getItems() {
         return this.items;
     }
