@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -14,6 +14,14 @@ export class CartComponent implements OnInit {
     clear;
     checkedForm;
 
+    static isZipOk(zip: string) {
+        return zip.length < 3;
+    }
+
+    static isCityOk(city: string) {
+        return city.toLowerCase().charAt(0) === 'a';
+    }
+
     constructor(private cartService: CartService, private formBuilder: FormBuilder) {
         this.items = this.cartService.getItems();
         this.remove = this.cartService.removeFromCart;
@@ -26,6 +34,8 @@ export class CartComponent implements OnInit {
                 city: '',
                 state: '',
                 zip: '',
+            }, {
+                validators: this.crossValidation,
             })
         });
     }
@@ -33,6 +43,18 @@ export class CartComponent implements OnInit {
     forbiddenName() {
         return (formControl) => {
             return formControl.value === 'Roman' ? {forbidden: {invalid: true}} : null;
+        };
+    }
+
+    crossValidation(formGroup) {
+        const zip = formGroup.get('zip').value;
+        const zipStatus = CartComponent.isZipOk(zip);
+
+        const city = formGroup.get('city').value;
+        const cityStatus = CartComponent.isCityOk(city);
+
+        return zipStatus ? null : {
+            zipStatus,
         };
     }
 
@@ -49,6 +71,10 @@ export class CartComponent implements OnInit {
 
     get name() {
         return this.checkedForm.get('name') as FormControl;
+    }
+
+    get address() {
+        return this.checkedForm.get('address') as FormGroup;
     }
 
     ngOnInit() { }
