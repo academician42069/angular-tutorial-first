@@ -3,38 +3,26 @@
 <form [formGroup]="checkedForm" (ngSubmit)="onSubmit(checkedForm.value)">
     <div>
         <label for="email">E-mail</label>
-        <input id="name" type="text" formControlName="email" required>
+        <input id="email" type="email" formControlName="email" required>
 
         <label for="password">Password</label>
-        <input id="name" type="password" formControlName="password" required>
+        <input id="password" type="password" formControlName="password" required>
 
-        <label for="password">Confirm Password</label>
-        <input id="name" type="password" formControlName="password" required>
+        <label for="password2">Confirm Password</label>
+        <input id="password2" type="password" formControlName="password2" required>
 
-        <label for="name">E-mail</label>
-        <input id="name" type="text" formControlName="name" required>
+        <label for="nickname">Nickname</label>
+        <input id="nickname" type="text" formControlName="nickname" required>
+
+        <label for="phone">Phone number</label>
+        <input id="phone" type="text" formControlName="phone" required>
+
+        <label for="website">Website</label>
+        <input id="website" placeholder="website" type="text" formControlName="website" required>
     </div>
 
-    <!-- <div formGroupName="address">
-        <h3>Address</h3>
-        <label> 
-            Street: 
-            <input type="text" formControlName="street">
-        </label>
-        <label> 
-            City: 
-            <input type="text" formControlName="city">
-        </label>
-        <label> 
-            State: 
-            <input type="text" formControlName="state">
-        </label>
-        <label> 
-            ZIP: 
-            <input type="text" formControlName="zip">
-        </label>
-    </div> -->
+    <label for="terms">I have read the <a href="#">Agreement</a></label>
+    <input id="terms" type="checkbox" formControlName="terms" required>
 
-    <button class="button" type="submit" *ngIf="checkedForm.status === 'VALID'">Purchase</button>
-    <button class="button" type="button" (click)="resetForm()">Reset</button>
+    <button class="button" type="submit" [disabled]="checkedForm.status === 'INVALID'">Register</button>
 </form>

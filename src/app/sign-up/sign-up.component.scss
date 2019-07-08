@@ -1,0 +1,12 @@
+form {
+    div {
+        label {
+            text-align: left;
+
+            &::before {
+                content: '*';
+                color: #FF0000;
+            }
+        }
+    }
+}
