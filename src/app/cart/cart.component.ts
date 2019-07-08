@@ -53,8 +53,9 @@ export class CartComponent implements OnInit {
         const city = formGroup.get('city').value;
         const cityStatus = CartComponent.isCityOk(city);
 
-        return zipStatus ? null : {
+        return zipStatus && cityStatus ? null : {
             zipStatus,
+            cityStatus
         };
     }
 
