@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { SignUpService } from '../sign-up.service';
 
 @Component({
     selector: 'app-sign-up',
@@ -14,7 +15,7 @@ export class SignUpComponent implements OnInit {
         return password1 === password2;
     }
 
-    constructor(private formbuilder: FormBuilder) {
+    constructor(private formbuilder: FormBuilder, private service: SignUpService) {
         this.checkedForm = formbuilder.group({
             email: ['', Validators.email],
             password: ['', Validators.pattern(/^[a-zA-Z0-9]{7,}$/)],
@@ -40,6 +41,7 @@ export class SignUpComponent implements OnInit {
 
     onSubmit(value) {
         console.log(value);
+        this.service.addUser(value);
         this.checkedForm.reset();
     }
 

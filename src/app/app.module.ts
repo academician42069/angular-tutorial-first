@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { UserListComponent } from './user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     ShippingComponent,
     WishlistComponent,
     SignUpComponent,
+    UserListComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +40,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
       {path: 'shipping', component: ShippingComponent},
       {path: 'wishlist', component: WishlistComponent},
       {path: 'sign-up', component: SignUpComponent},
+      {path: 'user-list', component: UserListComponent},
     ]),
     ReactiveFormsModule,
   ],

@@ -1,0 +1,12 @@
+<h3>User List</h3>
+
+<div>
+    <div *ngFor="let user of users">
+        <p><span>Email:</span> {{user.email}}</p>
+        <p><span>Password:</span> {{user.password}}</p>
+        <p><span>Nickname:</span> {{user.nickname}}</p>
+        <p><span>Phone Number:</span> {{user.phone}}</p>
+        <p><span>Website:</span> {{user.website}}</p>
+        <p><span>I have read the agreement:</span> {{user.terms}}</p>
+    </div>
+</div>
