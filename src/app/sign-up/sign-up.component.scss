@@ -1,12 +1,34 @@
 form {
     div {
         label {
+            font-weight: 400;
             text-align: left;
+            text-transform: unset;
 
             &::before {
-                content: '*';
+                content: '* ';
                 color: #FF0000;
             }
+        }
+
+        input {
+            width: 500px;
+        }
+    }
+
+    .check {
+        margin-bottom: 15px;
+
+        .terms {
+            &::before {
+                content: '';
+            }
+        }
+
+        #terms {
+            margin-top: 0;
+            float: left;
+            width: auto;
         }
     }
 }
