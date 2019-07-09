@@ -1,0 +1,14 @@
+<h3>Currency Exchange</h3>
+
+<!-- <div *ngFor="let currency of data">
+    <p>{{currency}}</p>
+</div> -->
+
+<form [formGroup]="checkedForm">
+    <input list="currencies">
+    <datalist id="currencies" *ngFor="let currency of data">
+        <option value="{{currency}}"></option>
+    </datalist>
+
+    <input type="text">
+</form>

@@ -15,6 +15,8 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { CurrencyComponent } from './currency/currency.component';
+import { ExchangeComponent } from './exchange/exchange.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { UserListComponent } from './user-list/user-list.component';
     WishlistComponent,
     SignUpComponent,
     UserListComponent,
+    CurrencyComponent,
+    ExchangeComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +45,8 @@ import { UserListComponent } from './user-list/user-list.component';
       {path: 'wishlist', component: WishlistComponent},
       {path: 'sign-up', component: SignUpComponent},
       {path: 'user-list', component: UserListComponent},
+      {path: 'currency', component: CurrencyComponent},
+      {path: 'exchange', component: ExchangeComponent},
     ]),
     ReactiveFormsModule,
   ],
