@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CurrencyComponent } from './currency/currency.component';
+import { ShippingService } from './shipping.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { CurrencyComponent } from './currency/currency.component';
     ]),
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [ShippingService],
   bootstrap: [AppComponent]
 })
 
