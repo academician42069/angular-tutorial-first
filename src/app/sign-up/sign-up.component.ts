@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormControl } from '@angular/forms';
 import { SignUpService } from '../sign-up.service';
 
 @Component({
@@ -27,7 +27,42 @@ export class SignUpComponent implements OnInit {
         }, {
             validators: this.crossValidation,
         });
+
+        console.log(this.checkedForm.get('email').value);
     }
+
+    get email() {
+        return this.checkedForm.get('email') as FormControl;
+    }
+
+    get password() {
+        return this.checkedForm.get('password') as FormControl;
+    }
+
+    get password2() {
+        return this.checkedForm.get('password2') as FormControl;
+    }
+
+    // get passwordMatch() {
+    //     return this.checkedForm.
+    // }
+
+    get nickname() {
+        return this.checkedForm.get('nickname') as FormControl;
+    }
+
+    get phone() {
+        return this.checkedForm.get('phone') as FormControl;
+    }
+
+    get website() {
+        return this.checkedForm.get('website') as FormControl;
+    }
+
+    get terms() {
+        return this.checkedForm.get('terms') as FormControl;
+    }
+
 
     crossValidation(formGroup) {
         const pw1 = formGroup.get('password').value;
