@@ -6,9 +6,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ShippingService {
 
+  private type;
+
   constructor(private http: HttpClient) { }
 
   getShippingCosts() {
       return this.http.get('assets/shipping.json');
+  }
+
+  setShipping(value) {
+    this.type = value;
+  }
+
+  getType() {
+    return this.type;
   }
 }
