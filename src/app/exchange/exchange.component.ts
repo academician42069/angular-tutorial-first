@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder } from '@angular/forms';
 import { data } from '../currencies';
 
 @Component({
@@ -10,8 +10,31 @@ import { data } from '../currencies';
 export class ExchangeComponent implements OnInit {
 
   checkedForm;
+  currencyForm;
+  currencyList;
 
-  constructor(private formGroup: FormGroup) {
+  constructor(private formBuilder: FormBuilder) {
+    this.currencyForm = formBuilder.group({
+      inputCurrency: formBuilder.array([ this.newCurrency('EUR', 0) ]),
+      outputCurrency: formBuilder.array([ this.newCurrency('USD', 0) ]),
+    });
+    this.currencyList = data;
+  }
+
+  newCurrency(currency, amount) {
+    return this.formBuilder.group({
+      currency,
+      amount,
+    });
+  }
+
+  addCurrency(currency, amount) {
+    const currencies = this.currencyForm.get('inputCurrency') as FormArray;
+    currencies.push(this.newCurrency(currency, amount));
+  }
+
+  onSubmit() {
+
   }
 
   ngOnInit() {

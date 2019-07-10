@@ -1,14 +1,34 @@
 <h3>Currency Exchange</h3>
+<!-- <div formArrayName="items"
+  *ngFor="let item of orderForm.get('items').controls; let i = index;">
+ -->
 
-<!-- <div *ngFor="let currency of data">
-    <p>{{currency}}</p>
-</div> -->
+<!-- <form [formGroup]="currencyForm" (ngSubmit)="onSubmit()"> -->
 
-<form [formGroup]="checkedForm">
+<form [formGroup]="currencyForm">
     <input list="currencies">
-    <datalist id="currencies" *ngFor="let currency of data">
-        <option value="{{currency}}"></option>
+    <datalist id="currencies">
+        <option *ngFor="let currency of currencyList">{{currency}}</option>
     </datalist>
+    <input type="text" formControlName="">
 
+    <input list="currencies">
+    <datalist id="currencies">
+        <option *ngFor="let currency of currencyList">{{currency}}</option>
+    </datalist>
     <input type="text">
 </form>
+
+<!-- <form [formGroup]="currencyForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="currency" *ngFor="let currency of currencyForm.get('currency').controls; let i = index;">
+        <div [formGroup]="i">
+            
+        </div>
+        <input list="currencies">
+        <datalist id="currencies" *ngFor="let currency of data">
+            <option value="{{currency}}"></option>
+        </datalist>
+
+        <input type="text">
+    </div>
+</form> -->
