@@ -19,6 +19,9 @@ import { NewsComponent } from './news/news.component';
 import { ArticleComponent } from './article/article.component';
 import { ErrorComponent } from './error/error.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { AdminComponent } from './admin/admin.component';
+import { GuardComponent } from './guard/guard.component';
+import { AdminGuard } from './admin.guard';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,8 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
     ArticleComponent,
     ErrorComponent,
     BreadcrumbsComponent,
+    AdminComponent,
+    GuardComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +56,8 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
       {path: 'dashboard', data: {name: 'Dashboard'}, component: DashboardComponent},
       {path: 'dashboard/news', data: {name: 'News'}, component: NewsComponent},
       {path: 'dashboard/news/:articleId', data: {name: 'Article'}, component: ArticleComponent},
+      {path: 'guard', data: {name: 'Guard'}, component: GuardComponent},
+      {path: 'admin', data: {name: 'Admin'}, component: AdminComponent, canActivate: [AdminGuard]},
       {path: 'error', component: ErrorComponent},
       {path: '**', redirectTo: 'error'},
     ]),
