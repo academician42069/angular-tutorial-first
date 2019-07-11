@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class SignUpService {
     private users = [];
+    private signedIn = false;
 
     constructor() {
 
@@ -21,4 +22,21 @@ export class SignUpService {
         });
         return readArray;
     }
+
+    readUserByEmail(email) {
+        return this.users.find((user) => user.email === email);
+    }
+
+    get status() {
+        return this.signedIn;
+    }
+
+    signIn() {
+        this.signedIn = true;
+    }
+
+    logOut() {
+        this.signedIn = false;
+    }
+
 }

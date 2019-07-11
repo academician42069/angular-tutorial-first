@@ -43,10 +43,6 @@ export class SignUpComponent implements OnInit {
         return this.checkedForm.get('password2') as FormControl;
     }
 
-    // get passwordMatch() {
-    //     return this.checkedForm.
-    // }
-
     get nickname() {
         return this.checkedForm.get('nickname') as FormControl;
     }

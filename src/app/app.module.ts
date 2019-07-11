@@ -25,6 +25,8 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { AdminComponent } from './admin/admin.component';
 import { GuardComponent } from './guard/guard.component';
 import { AdminGuard } from './admin.guard';
+import { LoginComponent } from './login/login.component';
+import { UserListGuard } from './user-list.guard';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,7 @@ import { AdminGuard } from './admin.guard';
     BreadcrumbsComponent,
     AdminComponent,
     GuardComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,7 +62,8 @@ import { AdminGuard } from './admin.guard';
       {path: 'shipping', data: {name: 'Shipping'}, component: ShippingComponent},
       {path: 'wishlist', data: {name: 'Wishlist'}, component: WishlistComponent},
       {path: 'sign-up', data: {name: 'Sign Up'}, component: SignUpComponent},
-      {path: 'user-list', data: {name: 'User List'}, component: UserListComponent},
+      {path: 'login', data: {name: 'Login'}, component: LoginComponent},
+      {path: 'user-list', data: {name: 'User List'}, component: UserListComponent, canActivate: [UserListGuard]},
       {path: 'currency', data: {name: 'Currency'}, component: CurrencyComponent},
       {path: 'exchange', data: {name: 'Exchange'}, component: ExchangeComponent},
       {path: 'dashboard', data: {name: 'Dashboard'}, component: DashboardComponent},

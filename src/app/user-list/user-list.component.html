@@ -10,3 +10,7 @@
         <p><span>I have read the agreement:</span> {{user.terms}}</p>
     </div>
 </div>
+
+<button [routerLink]="['/login']" (click)="logOut()" class="button">
+    Log out
+</button>

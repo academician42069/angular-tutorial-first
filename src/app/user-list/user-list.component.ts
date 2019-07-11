@@ -16,6 +16,11 @@ export class UserListComponent implements OnInit {
         return this.service.readAll();
     }
 
+    logOut() {
+        this.service.logOut();
+        window.alert('You have logged out');
+    }
+
     ngOnInit() {
     }
 

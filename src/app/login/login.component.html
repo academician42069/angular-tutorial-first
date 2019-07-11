@@ -1,0 +1,21 @@
+<h3>Log in</h3>
+
+<form [formGroup]="checkedForm" (ngSubmit)="onSubmit(checkedForm.value)">
+    <div>
+        <label for="email">E-mail:</label>
+        <input id="email" type="email" formControlName="email" required>
+        <span *ngIf="email.invalid && (email.dirty || email.touched)">
+            Please enter your email
+        </span>
+
+        <label for="password">Password:</label>
+        <input id="password" type="password" formControlName="password" required>
+        <span *ngIf="password.invalid && (password.dirty || password.touched)">
+            Please enter your password
+        </span>
+    </div>
+    
+    <button class="button" type="submit" [disabled]="checkedForm.status === 'INVALID'">Log in</button>
+</form>
+
+<h4><a [routerLink]="['/user-list']">User List</a></h4>
