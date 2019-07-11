@@ -12,11 +12,19 @@ import { CartComponent } from './cart/cart.component';
 import { ShippingComponent } from './shipping/shipping.component';
 import { HttpClientModule } from '@angular/common/http';
 import { WishlistComponent } from './wishlist/wishlist.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { CurrencyComponent } from './currency/currency.component';
 import { ExchangeComponent } from './exchange/exchange.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NewsComponent } from './news/news.component';
+import { ArticleComponent } from './article/article.component';
+import { ErrorComponent } from './error/error.component';
+import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { AdminComponent } from './admin/admin.component';
+import { GuardComponent } from './guard/guard.component';
+import { AdminGuard } from './admin.guard';
 
 @NgModule({
   declarations: [
@@ -32,23 +40,38 @@ import { ExchangeComponent } from './exchange/exchange.component';
     UserListComponent,
     CurrencyComponent,
     ExchangeComponent,
+    DashboardComponent,
+    NewsComponent,
+    ArticleComponent,
+    ErrorComponent,
+    BreadcrumbsComponent,
+    AdminComponent,
+    GuardComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: '', component: ProductListComponent},
-      {path: 'products/:productId', component: ProductDetailsComponent},
-      {path: 'cart', component: CartComponent},
-      {path: 'shipping', component: ShippingComponent},
-      {path: 'wishlist', component: WishlistComponent},
-      {path: 'sign-up', component: SignUpComponent},
-      {path: 'user-list', component: UserListComponent},
-      {path: 'currency', component: CurrencyComponent},
-      {path: 'exchange', component: ExchangeComponent},
+      {path: '', data: {name: 'Home'}, component: ProductListComponent},
+      {path: 'products/:productId', data: {name: 'Product'}, component: ProductDetailsComponent},
+      {path: 'cart', data: {name: 'Cart'}, component: CartComponent},
+      {path: 'shipping', data: {name: 'Shipping'}, component: ShippingComponent},
+      {path: 'wishlist', data: {name: 'Wishlist'}, component: WishlistComponent},
+      {path: 'sign-up', data: {name: 'Sign Up'}, component: SignUpComponent},
+      {path: 'user-list', data: {name: 'User List'}, component: UserListComponent},
+      {path: 'currency', data: {name: 'Currency'}, component: CurrencyComponent},
+      {path: 'exchange', data: {name: 'Exchange'}, component: ExchangeComponent},
+      {path: 'dashboard', data: {name: 'Dashboard'}, component: DashboardComponent},
+      {path: 'dashboard/news', data: {name: 'News'}, component: NewsComponent},
+      {path: 'dashboard/news/:articleId', data: {name: 'Article'}, component: ArticleComponent},
+      {path: 'guard', data: {name: 'Guard'}, component: GuardComponent},
+      {path: 'admin', data: {name: 'Admin'}, component: AdminComponent, canActivate: [AdminGuard]},
+      {path: 'error', component: ErrorComponent},
+      {path: '**', redirectTo: 'error'},
     ]),
     ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
