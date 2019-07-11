@@ -14,6 +14,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CurrencyComponent } from './currency/currency.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NewsComponent } from './news/news.component';
+import { ArticleComponent } from './article/article.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +30,10 @@ import { CurrencyComponent } from './currency/currency.component';
     ShippingComponent,
     WishlistComponent,
     CurrencyComponent,
+    DashboardComponent,
+    NewsComponent,
+    ArticleComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,6 +46,11 @@ import { CurrencyComponent } from './currency/currency.component';
       {path: 'shipping', component: ShippingComponent},
       {path: 'wishlist', component: WishlistComponent},
       {path: 'currency', component: CurrencyComponent},
+      {path: 'dashboard', component: DashboardComponent},
+      {path: 'dashboard/news', component: NewsComponent},
+      {path: 'dashboard/news/:articleId', component: ArticleComponent},
+      {path: 'error', component: ErrorComponent},
+      {path: '**', redirectTo: 'error'},
     ]),
     ReactiveFormsModule,
     FormsModule,
