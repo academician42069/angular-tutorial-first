@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SignUpService } from '../sign-up.service';
 
 @Component({
     selector: 'app-top-bar',
@@ -7,7 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class TopBarComponent implements OnInit {
-    constructor() { }
+    constructor(private signUpService: SignUpService) { }
 
     ngOnInit() { }
+
+    isSignedIn() {
+        return this.signUpService.status;
+    }
 }

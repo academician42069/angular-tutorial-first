@@ -2,35 +2,39 @@
     <h1>My Store</h1>
 </a>
 
-<a [routerLink]="['/sign-up']" class="button, fancy-button">
+<button [routerLink]="['/sign-up']" class="button, fancy-button">
     Sign up
-</a>
+</button>
 
-<a [routerLink]="['/login']" class="button, fancy-button">
+<button [routerLink]="['/login']" class="button, fancy-button">
     Login
-</a>
+</button>
 
-<a [routerLink]="['/guard']" class="button, fancy-button">
+<button [routerLink]="['/user-list']" *ngIf="isSignedIn()" class="button, fancy-button">
+    Users
+</button>
+
+<button [routerLink]="['/guard']" class="button, fancy-button">
     Guard
-</a>
+</button>
 
-<a [routerLink]="['/dashboard']" class="button, fancy-button">
+<button [routerLink]="['/dashboard']" class="button, fancy-button">
     Dashboard
-</a>
+</button>
 
-<a [routerLink]="['/currency']" class="button, fancy-button">
+<button [routerLink]="['/currency']" class="button, fancy-button">
     Currencies
-</a>
+</button>
 
-<a [routerLink]="['/wishlist']" class="button, fancy-button">
+<button [routerLink]="['/wishlist']" class="button, fancy-button">
     Wishlist
-</a>
+</button>
 
-<a [routerLink]="['/cart']" class="button, fancy-button">
+<button [routerLink]="['/cart']" class="button, fancy-button">
     <i class="material-icons">shopping_cart</i>
     Checkout
-</a>
+</button>
 
-<a [routerLink]="['/exchange']" class="button, fancy-button">
+<button [routerLink]="['/exchange']" class="button, fancy-button">
     Exchange
-</a>
+</button>
