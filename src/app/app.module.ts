@@ -22,6 +22,7 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { AdminComponent } from './admin/admin.component';
 import { GuardComponent } from './guard/guard.component';
 import { AdminGuard } from './admin.guard';
+import { EmployeesComponent } from './employees/employees.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { AdminGuard } from './admin.guard';
     BreadcrumbsComponent,
     AdminComponent,
     GuardComponent,
+    EmployeesComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,6 +60,7 @@ import { AdminGuard } from './admin.guard';
       {path: 'dashboard/news/:articleId', data: {name: 'Article'}, component: ArticleComponent},
       {path: 'guard', data: {name: 'Guard'}, component: GuardComponent},
       {path: 'admin', data: {name: 'Admin'}, component: AdminComponent, canActivate: [AdminGuard]},
+      {path: 'employees', data: {name: 'Employees'}, component: EmployeesComponent},
       {path: 'error', component: ErrorComponent},
       {path: '**', redirectTo: 'error'},
     ]),
