@@ -36,6 +36,21 @@ export class EmployeesService {
       }));
   }
 
+  getEmployeeByID(id: string) {
+    const url = `${this.host}/employee/${id}`;
+
+    return this.http
+      .get(url)
+      .pipe(map((employee: IEmployee) => {
+          return [{
+            id: employee.id,
+            name: employee.employee_name,
+            salary: employee.employee_salary,
+            age: employee.employee_age,
+          }];
+        }));
+    }
+
   register(newEmployee) {
     const url = `${this.host}/create`;
 

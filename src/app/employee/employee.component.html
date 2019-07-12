@@ -1,6 +1,4 @@
-<h1>Employees</h1>
-
-<button class="button" routerLink="/employee/register">Register new employee</button>
+<h1>Employee information</h1>
 
 <table>
     <thead>
@@ -12,8 +10,8 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let employee of employees$ | async">
-            <td><a href="employee/{{employee.id}}">{{employee.id}}</a></td>
+        <tr *ngFor="let employee of employee$ | async">
+            <td>{{employee.id}}</td>
             <td>{{employee.name}}</td>
             <td>{{employee.salary}}</td>
             <td>{{employee.age}}</td>

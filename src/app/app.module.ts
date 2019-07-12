@@ -29,6 +29,7 @@ import { LoginComponent } from './login/login.component';
 import { UserListGuard } from './user-list.guard';
 import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeRegisterComponent } from './employee-register/employee-register.component';
+import { EmployeeComponent } from './employee/employee.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { EmployeeRegisterComponent } from './employee-register/employee-register
     LoginComponent,
     EmployeesComponent,
     EmployeeRegisterComponent,
+    EmployeeComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +78,8 @@ import { EmployeeRegisterComponent } from './employee-register/employee-register
       {path: 'guard', data: {name: 'Guard'}, component: GuardComponent},
       {path: 'admin', data: {name: 'Admin'}, component: AdminComponent, canActivate: [AdminGuard]},
       {path: 'employees', data: {name: 'Employees'}, component: EmployeesComponent},
-      {path: 'employees/register', data: {name: 'Employee Register'}, component: EmployeeRegisterComponent},
+      {path: 'employees/:employeeId', data: {name: 'Employee Information'}, component: EmployeeComponent},
+      {path: 'employee/register', data: {name: 'Employee Register'}, component: EmployeeRegisterComponent},
       {path: 'error', component: ErrorComponent},
       {path: '**', redirectTo: 'error'},
     ]),
