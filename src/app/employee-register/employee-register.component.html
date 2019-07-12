@@ -1,0 +1,16 @@
+<h1>Employee Registration</h1>
+
+<form [formGroup]="checkedForm" (ngSubmit)="onSubmit(checkedForm.value)">
+    <div>
+        <label for="name">Name</label>
+        <input id="name" type="text" formControlName="name" required>
+
+        <label for="salary">Salary</label>
+        <input id="salary" type="text" formControlName="salary" required>
+
+        <label for="age">Age</label>
+        <input id="age" type="text" formControlName="age" required>
+    </div>
+
+    <button class="button" type="submit" [disabled]="checkedForm.status === 'INVALID'">Register</button>
+</form>
