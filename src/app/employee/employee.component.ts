@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeesService } from '../employees.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-employee',
@@ -10,12 +11,43 @@ import { ActivatedRoute } from '@angular/router';
 export class EmployeeComponent implements OnInit {
 
   id;
+  private employee;
   employee$;
+  private updating = false;
+  updateForm;
 
   constructor(
     private employeesService: EmployeesService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private formBuilder: FormBuilder,
   ) {
+    this.updateForm = this.formBuilder.group({
+      name: [''],
+      salary: [''],
+      age: [''],
+    });
+  }
+
+  initUpdate() {
+    this.updating = true;
+  }
+
+  update(newData) {
+    newData.id = this.id;
+    this.employeesService.update(this.id, newData).subscribe();
+    window.alert('Employee successfully updated');
+    this.updating = false;
+  }
+
+  get updateStatus() {
+    return this.updating;
+  }
+
+  deleteThisEmployee() {
+    this.employeesService.delete(this.id).subscribe();
+    window.alert('Employee removed');
+    this.router.navigate(['/employees']);
   }
 
   ngOnInit() {

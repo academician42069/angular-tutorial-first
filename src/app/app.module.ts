@@ -78,7 +78,7 @@ import { EmployeeComponent } from './employee/employee.component';
       {path: 'guard', data: {name: 'Guard'}, component: GuardComponent},
       {path: 'admin', data: {name: 'Admin'}, component: AdminComponent, canActivate: [AdminGuard]},
       {path: 'employees', data: {name: 'Employees'}, component: EmployeesComponent},
-      {path: 'employee/:employeeId', data: {name: 'Employee Information'}, component: EmployeeComponent},
+      {path: 'employees/:employeeId', data: {name: 'Employee Information'}, component: EmployeeComponent},
       {path: 'employee/register', data: {name: 'Employee Register'}, component: EmployeeRegisterComponent},
       {path: 'error', component: ErrorComponent},
       {path: '**', redirectTo: 'error'},

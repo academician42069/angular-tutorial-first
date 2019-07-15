@@ -59,6 +59,22 @@ export class EmployeesService {
       .pipe(catchError(this.handleError));
   }
 
+  update(id, newData) {
+    const url = `${this.host}/update/${id}`;
+    console.log(newData);
+
+    return this.http
+      .put(url, newData);
+  }
+
+  delete(id) {
+    const url = `${this.host}/delete/${id}`;
+
+    return this.http
+      .delete(url)
+      .pipe(catchError(this.handleError));
+  }
+
   handleError(error: HttpErrorResponse) {
     window.alert('An error occured. This may be because the user already exists.');
     return throwError('An error occured. This may be because the user already exists.');

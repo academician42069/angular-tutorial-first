@@ -1,6 +1,6 @@
 <h1>Employee information</h1>
 
-<table>
+<table *ngIf="!updateStatus">
     <thead>
         <tr>
             <th>Id</th>
@@ -18,3 +18,20 @@
         </tr>
     </tbody>
 </table>
+
+<div *ngIf="updateStatus">
+    <form *ngFor="let employee of employee$ | async" [formGroup]="updateForm" (ngSubmit)="update(updateForm.value)">
+        <label for="id">ID</label>
+        <input type="text" id="id" [value]="employee.id" disabled>
+        <label for="name">Name</label>
+        <input type="text" id="name" formControlName="name" [value]="employee.name">
+        <label for="salary">Salary</label>
+        <input type="text" id="salary" formControlName="salary" [value]="employee.salary">
+        <label for="age">Age</label>
+        <input type="text" id="age" formControlName="age" [value]="employee.age">
+        <button type="submit" class="button">Submit</button>
+    </form>
+</div> 
+
+<button *ngIf="!updateStatus" class="button" (click)="initUpdate()">Edit</button>
+<button *ngIf="!updateStatus" class="button" (click)="deleteThisEmployee()">Delete</button>
