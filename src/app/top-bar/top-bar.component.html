@@ -42,3 +42,6 @@
 <button [routerLink]="['/exchange']" class="button, fancy-button">
     Exchange
 </button>
+
+<button class="button fancy-button" (click)="menu.showMenu()">Menu</button>
+<app-menu #menu></app-menu>

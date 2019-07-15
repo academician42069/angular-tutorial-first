@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeesService } from '../employees.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.scss']
+  styleUrls: ['./employee.component.scss'],
 })
 export class EmployeeComponent implements OnInit {
 
