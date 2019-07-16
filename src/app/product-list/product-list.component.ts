@@ -9,11 +9,9 @@ import { WishlistService } from '../wishlist.service';
 })
 
 export class ProductListComponent {
-    wishlist;
     products = products;
 
-    constructor(wishlist: WishlistService) {
-        this.wishlist = wishlist;
+    constructor(private wishlist: WishlistService) {
     }
 
     share() {
@@ -29,6 +27,6 @@ export class ProductListComponent {
     }
 
     checkWishlist(item) {
-        return this.wishlist.items.has(item);
+        return this.wishlist.items.indexOf(item) !== -1;
     }
 }
