@@ -9,33 +9,36 @@ import { animate, keyframes, state, style, trigger, transition } from '@angular/
   animations: [
     trigger('loadingTrigger', [
       state('loading', style({
-        display: 'block',
-        'z-index': '2',
+        color: '#FFFFFF'
       })),
-      state('not-loading', style({
+      state('notloading', style({
         display: 'none',
-        'z-index': '0',
-        transform: 'none',
       })),
       transition('void => loading', [
-        animate('0.2s', keyframes([
-          style({ transform: 'rotate(180)'}),
-          style({ transform: 'rotate(360)'})
+        animate('0.5s', keyframes([
+          style({ 'background-color': '#1976D2', offset: 0}),
+          style({ 'background-color': '#999999', offset: 1})
         ]))
       ]),
-    ])
+      transition('loading => notloading', [
+        animate('100ms')
+      ])
+    ]),
   ],
 })
 export class EmployeesComponent implements OnInit {
 
   employees$: object;
-  loadingTrigger = true;
+  isAnimated = true;
 
-  constructor(private employeeService: EmployeesService) { }
+  constructor(private employeeService: EmployeesService) {
+    this.isAnimated = false;
+  }
 
   ngOnInit() {
+    this.isAnimated = true;
     this.employees$ = this.employeeService.getEmployees();
-    // this.loadingTrigger = false;
+    setTimeout(() => {this.isAnimated = false; }, 500);
   }
 
 }

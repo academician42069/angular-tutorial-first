@@ -2,7 +2,7 @@
 
 <button class="button" routerLink="/employee/register">Register new employee</button>
 
-<div [@loadingTrigger]="loadingTrigger ? 'loading' : 'not-loading'">LOADING...</div>
+<div [@loadingTrigger]="isAnimated ? 'loading' : 'notloading'">LOADING...</div>
 
 <table>
     <thead>
