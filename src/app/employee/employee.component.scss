@@ -2,11 +2,30 @@ div {
     form {
         button {
             display: block;
-            margin-bottom: 8px;
         }
     }
 }
 
 button {
     margin-right: 5px;
+    margin-bottom: 8px;
+}
+
+.modal-menu {
+    // height: 40%;
+    background-color: #919191;
+    padding: 10px;
+    // opacity: 0.5;
+
+    p {
+        color: #FFF;
+        font-weight: bold;
+        font-size: 15px;
+        text-align: center;
+    }
+
+    div {
+        display: flex;
+        justify-content: center;
+    }
 }

@@ -35,3 +35,11 @@
 
 <button *ngIf="!updateStatus" class="button" (click)="initUpdate()">Edit</button>
 <button *ngIf="!updateStatus" class="button" (click)="deleteThisEmployee()">Delete</button>
+
+<div class="modal-menu" [@modalTrigger]="animated ? 'popout' : 'hidden'">
+    <p>Are you sure you want to delete this user?</p>
+    <div>
+        <button class="button fancy-button" (click)="confirmDelete()">Yes</button>
+        <button class="button fancy-button" (click)="hide()">No</button>
+    </div>
+</div>
